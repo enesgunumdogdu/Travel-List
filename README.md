@@ -1,2 +1,2 @@
-# Gezi-Listesi
-Kotlin Gezi Listesi
+# Travel List
+**Kotlin Travel List**
