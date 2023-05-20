@@ -1,0 +1,7 @@
+/*
+        //latitude-> eylem longitude ->boylam
+
+        val skull = LatLng(36.8561352,30.7439927)
+        mMap.addMarker(MarkerOptions().position(skull).title("Skull Street Food"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(skull,18f))
+        */
