@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
 import com.enesgunumdogdu.kotlinharita.R
+import com.enesgunumdogdu.kotlinharita.adapter.PlaceAdapter
 import com.enesgunumdogdu.kotlinharita.databinding.ActivityMainBinding
 import com.enesgunumdogdu.kotlinharita.model.Place
 import com.enesgunumdogdu.kotlinharita.roomdb.PlaceDatabase
@@ -37,7 +39,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun handleResponse(placeList : List<Place>){
-
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        val adapter = PlaceAdapter(placeList)
+        binding.recyclerView.adapter = adapter
     }
 
 
@@ -50,6 +54,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.add_place){
             val intent = Intent(this, MapsActivity::class.java)
+            intent.putExtra("info","new")
             startActivity(intent)
         }
         return super.onOptionsItemSelected(item)
